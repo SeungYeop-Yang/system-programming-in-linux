@@ -1,0 +1,29 @@
+# 20260826 about `make -k`
+In the build automation tool make, running make -k (or --keep-going) tells 
+the program to continue building independent targets even if one of the 
+compilation steps encounters an error. By default, make will stop executing 
+immediately when any command fails. Adding the -k flag alters this behavior 
+so you can see as many compilation errors as possible in a single run.
+
+# The orignal README 
+To compile all programs in this directory, enter
+$ make -k
+The -k is needed because the program bad_getenv_demo.c will not compile and
+the -k option tells make to continue making the other target executables.
+
+bad_getenv_demo.c is included in this directory because negative examples
+are just as useful as positive ones. It illustrates a common mistake that
+beginning C programmers make.
+
+stdin_demo.c is an older program that showed the use of stdin and stdout.
+
+The programs in this directory are introduced in Chapter 01 in the following
+order. Programs marked with a * are not in the book or mentioned by it.
+
+hello.c
+* stdin_demo.c
+getenv_demo.c
+* bad_getenv_demo.c
+hello_world.c
+getpid_demo.c
+gettid_demo.c
