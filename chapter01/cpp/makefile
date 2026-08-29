@@ -31,14 +31,9 @@ clean:
 cleanall:
 	-rm -f $(OBJS) $(EXECS) $(CXXOBJS) $(CXXEXECS) $(CXX20OBJS) $(CXX20EXECS)
 
-#.c:
-#	$(CC) $(CFLAGS) -c $@.c
-#.cpp:
-#	$(CXX) $(CXXFLAGS) -c $@.cpp
-#.c20:
-#	$(CXX) $(CXX20FLAGS) -c $@.c20
 %.o: %.c
 	$(CC) $(CFLAGS) -c $<
+
 %.o: %.cpp
 	$(CXX) $(CXXFLAGS) -c $< 
 

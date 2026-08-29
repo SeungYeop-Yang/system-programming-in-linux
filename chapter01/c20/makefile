@@ -5,7 +5,7 @@ CXX			= /usr/bin/g++
 
 SRCS		= 
 CXXSRCS		=  
-CXX20SRCS	=  c20_getenv_demo.c20
+CXX20SRCS	=  getenv_demo.c20
 
 OBJS    	= $(patsubst %.c,%.o,$(SRCS))
 CXXOBJS 	= $(patsubst %.cpp,%.o,$(CXXSRCS))
@@ -31,14 +31,9 @@ clean:
 cleanall:
 	-rm -f $(OBJS) $(EXECS) $(CXXOBJS) $(CXXEXECS) $(CXX20OBJS) $(CXX20EXECS)
 
-#.c:
-#	$(CC) $(CFLAGS) -c $@.c
-#.cpp:
-#	$(CXX) $(CXXFLAGS) -c $@.cpp
-#.c20:
-#	$(CXX) $(CXX20FLAGS) -c $@.c20
 %.o: %.c
 	$(CC) $(CFLAGS) -c $<
+
 %.o: %.cpp
 	$(CXX) $(CXXFLAGS) -c $< 
 

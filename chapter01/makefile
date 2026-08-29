@@ -22,6 +22,7 @@ cleanall:
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $<
+	
 %.o: %.cpp
 	$(CXX) $(CXXFLAGS) -c $< 
 
