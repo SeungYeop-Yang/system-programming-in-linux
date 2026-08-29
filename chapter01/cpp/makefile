@@ -31,9 +31,14 @@ clean:
 cleanall:
 	-rm -f $(OBJS) $(EXECS) $(CXXOBJS) $(CXXEXECS) $(CXX20OBJS) $(CXX20EXECS)
 
-.c:
-	$(CC) $(CFLAGS) -c $@.c
-
+#.c:
+#	$(CC) $(CFLAGS) -c $@.c
+#.cpp:
+#	$(CXX) $(CXXFLAGS) -c $@.cpp
+#.c20:
+#	$(CXX) $(CXX20FLAGS) -c $@.c20
+%.o: %.c
+	$(CC) $(CFLAGS) -c $<
 %.o: %.cpp
 	$(CXX) $(CXXFLAGS) -c $< 
 
@@ -41,12 +46,12 @@ cleanall:
 	$(CXX) $(CXX20FLAGS) -c $<
 
 $(EXECS): $(OBJS)
-	$(CC) $(LDFLAGS) $@.o -o $@
+	$(CC) $(LDFLAGS) $< -o $@
 
 $(CXXEXECS): $(CXXOBJS)
-	$(CXX) $(LDFLAGS) $@.o -o $@
+	$(CXX) $(LDFLAGS) $< -o $@
 
 $(CXX20EXECS): $(CXX20OBJS)
-	$(CXX) $(LDFLAGS) $@.o -o $@
+	$(CXX) $(LDFLAGS) $< -o $@
 
 # In a Makefile, $@ is an automatic variable that represents the file name of the target of the rule.
